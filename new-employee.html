@@ -1,0 +1,133 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Employee Management System</title>
+<link rel="icon" href="images/favicon.ico">
+<!--=========FontAwesome Font Style=============-->
+<link href="fonts/font-awesome/font-awesome.css" rel="stylesheet">
+<!--========Load Roboto Font========-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet"> 
+<!--========Load Bootstrap Style========-->
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" type="text/css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css" type="text/css" rel="stylesheet" />
+<!--========Load Data Table Style========-->
+<link href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+<!--========Load  Style========-->
+<link href="style.css" type="text/css" rel="stylesheet" />
+<!--========Load Js Library========-->
+<script src="js/jquery-3.2.1.min.js"></script>
+<body>
+<div class="midHeight">
+<!--========Header Section==========-->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-lg-5">
+				<h2>Employee Management System</h2>
+			</div>
+			<div class="col-xs-12 col-lg-7">
+				<a class="menuicon"><i class="fa fa-bars"></i></a>
+				<ul>
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="employee-list.html" title="Employee List">Employee List</a></li>
+					<li><a href="new-employee.html" title="New Employee">New Employee</a></li>
+					<li><a href="delete-employee.html" title="Delete Employee">Delete Employee</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<!--========/Header Section==========-->
+<!--========Middle Section==========-->
+<section class="middle">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 breadcrumbList">
+				<h3>New Employee</h3>
+				<ul>
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a>/</a></li>
+					<li><a>New Employee</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title mb-0">Create New Employee</h4>
+					</div>
+					<div class="card-body">
+						<form  id="createEmploye">
+							<div class="form-group row">
+								<label class="col-form-label col-md-2">Id</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control" name="id">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-form-label col-md-2">Name</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control" name="empname">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-form-label col-md-2">Salary</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control" name="salary">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-form-label col-md-2">Age</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control" name="age">
+								</div>
+							</div>
+							<div class="form-group mb-0 row">
+								<div class="col-md-12 text-right">
+									<button class="btn btn-primary push-right" type="submit" id="formSubmit">Button</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title mb-0">JSON</h4>
+						<div class="form-control" id="result"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--========/Middle Section==========-->
+<!--========Footer Section==========-->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<p>© 2019 Employee Management System</p>
+			</div>
+		</div>
+	</div>
+</footer>
+<!--========/Footer Section==========-->
+<!--========Load Bootstrap Js Library========-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/serialize.js"></script>
+<script type="text/javascript">
+$(function() {
+    $('form').submit(function() {
+        $('#result').text(JSON.stringify($('form').serializeObject()));
+        return false;
+    });
+});	
+</script>
+</div>
+</body>
+</html>

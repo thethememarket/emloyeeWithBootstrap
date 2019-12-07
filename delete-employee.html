@@ -1,0 +1,126 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Employee Management System</title>
+<link rel="icon" href="images/favicon.ico">
+<!--=========FontAwesome Font Style=============-->
+<link href="fonts/font-awesome/font-awesome.css" rel="stylesheet">
+<!--========Load Roboto Font========-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet"> 
+<!--========Load Bootstrap Style========-->
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+<!--========Load Bootstrap Datatable Style========-->
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" type="text/css" rel="stylesheet" />
+<!--========Load Data Table Style========-->
+<link href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+<!--========Load Data Table Style========-->
+<link href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css" type="text/css" rel="stylesheet" />
+<!--========Load  Style========-->
+<link href="style.css" type="text/css" rel="stylesheet" />
+<!--========Load Js Library========-->
+<script src="js/jquery-3.2.1.min.js"></script>
+<body>
+<div class="midHeight">
+<!--========Header Section==========-->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-lg-5">
+				<h2>Employee Management System</h2>
+			</div>
+			<div class="col-xs-12 col-lg-7">
+				<a class="menuicon"><i class="fa fa-bars"></i></a>
+				<ul>
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="employee-list.html" title="Employee List">Employee List</a></li>
+					<li><a href="new-employee.html" title="New Employee">New Employee</a></li>
+					<li><a href="delete-employee.html" title="Delete Employee">Delete Employee</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<!--========/Header Section==========-->
+<!--========Middle Section==========-->
+<section class="middle">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 breadcrumbList">
+				<h3>Employee</h3>
+				<ul>
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a>/</a></li>
+					<li><a>Employee List</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<div class="tableScroll">
+					<table id="employeeList" class="table table-striped table-bordered" style="width: 100%;">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Employe Name</th>
+								<th>Employee Salary</th>
+								<th>Age</th>
+								<th>Profile Image</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--========/Middle Section==========-->
+<!--========Footer Section==========-->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<p>© 2019 Employee Management System</p>
+			</div>
+		</div>
+	</div>
+</footer>
+<!--========/Footer Section==========-->
+<!--========Load Bootstrap Js Library========-->
+<script src="js/bootstrap.min.js"></script>
+<!--========Load Bootstrap Data Table Js Library========-->
+<script src="http://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var table = $('#employeeList').DataTable( {
+	    ajax: {
+	        url: 'http://dummy.restapiexample.com/api/v1/employees',
+	        dataSrc: ''
+	    },
+    	columns: [
+    		{ data: "id" },
+	        { data: "employee_name" },
+	        { data: "employee_salary" },
+	        { data: "employee_age" },
+	        { data: "profile_image" },
+	        {
+                data: null,
+                className: "center",
+                defaultContent: '<a href="javascript:void(0)" class="btn btn-danger removerow">Delete</a>'
+            }
+    	]
+	});	 
+});
+$(document).on('click', '.removerow', function () {
+	alert("This row is Deleted");
+	$(this).closest('tr').remove();
+});       
+</script>
+</div>
+</body>
+</html>
